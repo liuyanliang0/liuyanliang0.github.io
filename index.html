@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>诗歌本</title>
+    <style>
+   #myInput {
+    background-image: url('images/searchicon.png'); /* 搜索按钮 */
+    background-position: 10px 12px; /* 定位搜索按钮 */
+    background-repeat: no-repeat; /* 不重复图片*/
+    width: 80%; 
+    font-size: 16px; /* 加大字体 */
+    padding: 12px 20px 12px 40px; 
+    border: 1px solid #ddd; 
+    margin-bottom: 12px; 
+}
+
+#myUL {
+    /* 移除默认的列表样式 */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#myUL li a {
+    border: 1px solid #ddd; /* 链接添加边框 */
+    margin-top: -1px; 
+    background-color: #f6f6f6; 
+    padding: 12px; 
+    text-decoration: none;
+    font-size: 18px; 
+    color: black; 
+    display: block; 
+}
+
+#myUL li a.header {
+    background-color: #e2e2e2; 
+    cursor: default; 
+}
+
+    </style>
+</head>
+<body>
+  <input type="text"  id="myInput" onkeyup="myFunction()" placeholder="搜索...">
+
+  <ul id="myUL">
+    <li><a href="#" class="header">A</a></li>
+    <li><a href="#">247.爱在哪里(aznl)</a></li>
+    <li><a href="#">29.爱，我愿意(awyy)</a></li>
+  
+    <li><a href="#" class="header">B</a></li>
+    <li><a href="1.html">149.宝贵十架(bgsj)</a></li>
+    <li><a href="#">31.别无他名(bwtm)</a></li>
+  
+    <li><a href="#" class="header">C</a></li>
+    <li><a href="#">126.常常喜乐(ccxl)</a></li>
+    <li><a href="#">33.赐福与你(cfyn)</a></li>
+    <li><a href="#">125.差遣我(cqw)</a></li>
+  </ul>
+<script>
+  
+
+  // 循环表格每一行，查找匹配项
+  function myFunction() {
+    // 声明变量
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('myInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName('li');
+
+    // 循环所有列表，查找匹配项
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "block";/* 将不显示的再重新显示 */
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+</script>
+</body>
+</html>
